@@ -103,7 +103,7 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 
 		return executeAuthenticatedOperation(OPERATION_USERADD, url, AddUserResult.class);
 	}
-	
+
 	@Override
 	public AddUserResult addUser(String userAddress, String appId) throws MesiboApiException {
 		// method interprets 'null' for optional parameters as 'not present'
@@ -139,7 +139,7 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 				.build();
 
 		T result = executeAndRead(request, responseType);
-		
+
 		// check for error
 		if (result.isError()) {
 			throw new MesiboErrorResponseException(result);
@@ -182,7 +182,7 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 		} catch (IOException e) {
 			throw new MesiboApiException("Failed to read response body", e);
 		}
-		
+
 		logger.debug("raw response body: " + rawResponseBody);
 
 		try {

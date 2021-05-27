@@ -19,14 +19,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE) // deserialization
 @Getter
 public class AddUserResult extends BaseOperationResult {
-	
+
 	private User user;
-	
+
 	@AllArgsConstructor
 	@NoArgsConstructor(access = AccessLevel.PRIVATE) // deserialization
 	@Getter
 	public static class User {
-		
+
 		private String uid;
 		private String token;
 	}

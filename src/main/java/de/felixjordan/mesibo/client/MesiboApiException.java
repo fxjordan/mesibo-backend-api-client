@@ -12,12 +12,12 @@ package de.felixjordan.mesibo.client;
  * @author Felix Jordan
  */
 public class MesiboApiException extends Exception {
-	
+
 	public MesiboApiException(String message) {
 		super(message);
 	}
-    
-    public MesiboApiException(String message, Exception exception) {
-        super(message, exception);
-    }
+
+	public MesiboApiException(String message, Exception exception) {
+		super(message, exception);
+	}
 }

@@ -25,8 +25,6 @@ public class MesiboBackendApiClientTest {
 			throw new IllegalArgumentException("test requires a Mesibo application token as first parameter");
 		}
 		String testAppToken = args[0];
-		
-		
 
 		MesiboBackendApiClientTest testInstance = new MesiboBackendApiClientTest(testAppToken);
 		testInstance.testCreateUser();

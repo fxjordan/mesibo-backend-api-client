@@ -34,7 +34,7 @@ public interface MesiboBackendApi {
 			Boolean active,
 			String name,
 			Integer maxGroups) throws MesiboApiException;
-	
+
 	/**
 	 * Adds a user (or regenerates an access token for the user) with the given ID.
 	 * 
