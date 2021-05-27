@@ -5,7 +5,7 @@
 
 	<groupId>de.felixjordan</groupId>
 	<artifactId>mesibo-backend-api-client</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 
 	<name>Mesibo Backend API Client</name>
 	<description>A Java client for the Mesibo backend API.</description>
