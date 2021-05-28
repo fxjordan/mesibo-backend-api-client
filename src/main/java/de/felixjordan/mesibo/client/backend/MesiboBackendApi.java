@@ -46,4 +46,15 @@ public interface MesiboBackendApi {
 	AddUserResult addUser(
 			String userAddress,
 			String appId) throws MesiboApiException;
+
+	/**
+	 * Regenerates an access token for the user with the given ID. The access token
+	 * is always specific for the appId used in this method (see Mesibo docs).
+	 * 
+	 * @param uid
+	 * @param appId
+	 * @return
+	 * @throws MesiboApiException
+	 */
+	RegenerateAccessTokenResult regenerateUserAccessToken(String uid, String appId) throws MesiboApiException;
 }

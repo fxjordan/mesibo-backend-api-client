@@ -8,6 +8,8 @@
  */
 package de.felixjordan.mesibo.client.backend;
 
+import org.apache.commons.lang3.Validate;
+
 import de.felixjordan.mesibo.client.MesiboApiException;
 
 /**
@@ -28,6 +30,9 @@ public class MesiboBackendApiClientTest {
 
 		MesiboBackendApiClientTest testInstance = new MesiboBackendApiClientTest(testAppToken);
 		testInstance.testCreateUser();
+
+		// Paste UID of some existing Mesibo user here
+		testInstance.testRegenerateToken("333635");
 	}
 
 	private String appToken;
@@ -50,5 +55,22 @@ public class MesiboBackendApiClientTest {
 		String accessToken = result.getUser().getToken();
 
 		System.out.println("Added test user to Mesibo: userId=" + userId + ", accessToken=" + accessToken);
+	}
+
+	private void testRegenerateToken(String uid) {
+		// Create client
+		MesiboBackendApi mesiboClient = new MesiboBackendApiClient(appToken);
+
+		RegenerateAccessTokenResult result;
+		try {
+			result = mesiboClient.regenerateUserAccessToken(uid, "com.example.someapp");
+		} catch (MesiboApiException e) {
+			throw new RuntimeException("Failed regenerate user access token", e);
+		}
+		String userId = result.getUser().getUid();
+		Validate.isTrue(userId.equals(uid), "returned uid should equal the uid from the request!");
+		String accessToken = result.getUser().getToken();
+
+		System.out.println("regenerated user access token for userId=" + userId + " : accessToken=" + accessToken);
 	}
 }

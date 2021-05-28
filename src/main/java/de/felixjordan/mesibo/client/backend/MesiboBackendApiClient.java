@@ -45,6 +45,7 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 
 	// constants for operation IDs:
 	private static final String OPERATION_USERADD = "useradd";
+	private static final String OPERATION_REGENERATE_TOKEN = "usertoken";
 
 	/**
 	 * The application token to use for authentication.
@@ -108,6 +109,18 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 	public AddUserResult addUser(String userAddress, String appId) throws MesiboApiException {
 		// method interprets 'null' for optional parameters as 'not present'
 		return addUser(userAddress, appId, null, null, null, null);
+	}
+
+	@Override
+	public RegenerateAccessTokenResult regenerateUserAccessToken(String uid, String appId) throws MesiboApiException {
+		Validate.notBlank(uid);
+		Validate.notBlank(appId);
+
+		HttpUrl.Builder url = HttpUrl.parse(API_ENDPOINT_URL).newBuilder()
+				.addQueryParameter("uid", uid)
+				.addQueryParameter("appid", appId);
+
+		return executeAuthenticatedOperation(OPERATION_REGENERATE_TOKEN, url, RegenerateAccessTokenResult.class);
 	}
 
 	/**
