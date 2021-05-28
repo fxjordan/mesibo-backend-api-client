@@ -99,4 +99,15 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>buddyMavenRepoWrite</id>
+			<url>${buddyMavenRepoWriteUrl}</url>
+		</repository>
+		<snapshotRepository>
+			<id>buddyMavenRepoWrite</id>
+			<url>${buddyMavenRepoWriteUrl}</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
