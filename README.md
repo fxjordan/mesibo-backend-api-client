@@ -1,5 +1,6 @@
 # Mesibo backend API client
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/fxjordan/mesibo-backend-api-client.svg?branch=main)](https://travis-ci.com/fxjordan/mesibo-backend-api-client)
 
 A Java client for the Mesibo backend API.
 
