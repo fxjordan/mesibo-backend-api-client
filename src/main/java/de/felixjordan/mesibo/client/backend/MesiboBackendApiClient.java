@@ -60,7 +60,7 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 	 * 
 	 * @param appToken the application token to use for authentication
 	 */
-	MesiboBackendApiClient(String appToken) {
+	public MesiboBackendApiClient(String appToken) {
 		this(appToken, new OkHttpClient(), createDefaultObjectMapper());
 	}
 
@@ -70,7 +70,7 @@ public class MesiboBackendApiClient implements MesiboBackendApi {
 	 * @param httpClient
 	 * @param objectMapper
 	 */
-	MesiboBackendApiClient(String appToken, OkHttpClient httpClient, ObjectMapper objectMapper) {
+	public MesiboBackendApiClient(String appToken, OkHttpClient httpClient, ObjectMapper objectMapper) {
 		Validate.notBlank(appToken);
 		Validate.notNull(httpClient);
 		Validate.notNull(objectMapper);
